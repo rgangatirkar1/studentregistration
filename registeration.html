@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Putting User Input into JS Objects</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+        h1{
+            font-family: 'Lato', sans-serif;  font-family: 'Lato', sans-serif;
+            text-align: left;
+        }
+        .formBox{
+            padding: 0.5rem 2rem;
+            font-family: 'Lato', sans-serif;
+            text-align: left;
+        }
+        #button{
+            background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<h1>Student Registration</h1>
+<br>
+    <form name="passdata" action="/" method="post">
+        <div class="formBox">
+            <label for="title">First Name</label>
+            <input type="text" id="fname" placeholder="First Name" name="first" required/>
+        </div>
+        <div class="formBox">
+            <label for="yr">Last Name</label>
+            <input type="text" id="lname" placeholder="Last Name" name="last" required/>
+        </div>
+        <div class="formBox">
+            <label for="title">Grade</label>
+            <select name="grade" id="grade">
+  <option value="9">9</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+</select>
+        </div>
+        <div class="formBox">
+            <label for="Gender">Gender</label>
+            <br>
+            <input type="radio" id="male" name="gender" value="male" required/>
+<label for="male">Male</label><br>
+<input type="radio" id="female" name="gender" value="female"/>
+<label for="female">Female</label><br>
+<input type="radio" id="other" name="gender" value="other"/>
+<label for="other">Other</label>
+        </div>
+        <div class="formBox">
+            <label for="email">Email Address</label>
+            <input type="text" id="email" placeholder="Email" name="mail" required/>
+        </div>
+        <div class="formBox">
+            <label for="school">School</label>
+            <input type="text" id="school" placeholder="School Name" name="schools" required/>
+        </div>
+        <div class="formBox">
+            <input type="submit" id="button" value="submit"/>
+        </div>
+</form>
+<br>
+<a href="/getRecords">View All</a>
+<br>
+</body>
+</html>

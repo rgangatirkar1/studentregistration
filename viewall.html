@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+    table{
+          border-collapse: collapse;
+    }
+    h1{
+            font-family: 'Lato', sans-serif;  font-family: 'Lato', sans-serif;
+            text-align: left;
+        }
+    table, th, td {
+  border: 2px solid black;
+        font-family: 'Lato', sans-serif;  font-family: 'Lato', sans-serif;
+}
+    th,td{
+         padding: 15px;
+    }
+    th{
+        background-color: #4CAF50;
+  color: white;
+    }
+</style>
+<body>
+<h1>Student Info</h1>
+<br>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Students" title="Type in a name">
+<br>
+<table id="myTable">
+<thead>
+<tr>
+    <th>Id</th>
+    <th>Last Name</th>
+    <th>First Name</th>
+    <th>Action</th>
+</tr>
+</thead>
+<br>
+{% for result in records %}
+    <tr>
+    <td><a href="#" onclick="window.open('/getRecord?student_id='+{{result.student_info.id}}, 'yourWindowName', 'width=500,height=300');">{{ result.student_info.id }}</a></td>
+                <td>{{ result.student_info.lname }}</td>
+                <td>{{ result.student_info.fname }}</td>
+                <td> <a href="#" onclick="window.open('/deleted?student_id='+{{result.student_info.id}},'yourWindowName', 'width=500,height=300');">
+                    <span class="glyphicon glyphicon-trash"></span> </a>/
+                    <a href='/editStudent?student_id={{result.student_info.id}}'>
+          <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+                </td>
+    </tr>
+
+{% endfor %}
+</table>
+
+
+</body>
+<script>
+  function myFunction() {
+      var input, filter, table, tr, a, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      var rows=document.getElementById("myTable").rows;
+      var rowslength=document.getElementById("myTable").rows.length;
+      for(i=1;i<rowslength;i++){
+         var rowElement =document.getElementById("myTable").rows[i];
+         var found = false;
+         for(x=1;x<3;x++){
+             var cellValue = rowElement.cells[x].innerHTML.toLowerCase();
+             var userInput = document.getElementById("myInput").value.toLowerCase();
+             if (cellValue.includes(userInput)){
+                 found = true;
+                 break;
+             }
+         }
+        if(found) {
+            rows[i].style.display = "";
+        }
+        else {
+               rows[i].style.display = "none";
+             }
+      }
+  }
+</script>
+</body>
+</html>
